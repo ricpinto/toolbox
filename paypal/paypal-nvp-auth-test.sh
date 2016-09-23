@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #####################################################
 # Paypal NVP api account test
 # The script will try to place a payment request
@@ -56,4 +57,8 @@ echo ""
 echo "-------------------------------------"
 echo " Service response"
 echo "-------------------------------------"
-echo "${DECODED_RESPONSE//&/$'\n'  }"
+PARAMS=$(echo ${DECODED_RESPONSE//&/ })
+for PARAM in $PARAMS
+do
+    echo $PARAM
+done
